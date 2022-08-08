@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Details</h1>
-</body>
-</html>
+{% extends 'blog/base.html'%} 
+{% block head_title %} {{ post.title }} -Blog {% endblock %} 
+{% block main_area %} 
+    <h1>{{ post.title }}</h1>
+    <h4>{{ post.created_at }}</h4>
+    <p>{{ post.content }}</p>
+    <hr/>
+    <h3>여기 댓글이 들어올 수 있겠죠?</h3>
+{% endblock %} 
