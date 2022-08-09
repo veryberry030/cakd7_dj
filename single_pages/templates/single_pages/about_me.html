@@ -46,9 +46,6 @@
             <li class="nav-item">
               <a class="nav-link" href="/about_me/">About Me</a>
             </li>
-          </ul>
-          <ul class="navbar-nav ml-auto">
-            {% if user.is_authenticated %}
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -59,16 +56,19 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                {{ user.username }}
+                Dropdown link
               </a>
               <div
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <a class="dropdown-item" href="/accounts/logout/">Log Out</a>
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
               </div>
             </li>
-            {% else %}
+          </ul>
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a
                 class="nav-link"
@@ -78,11 +78,11 @@
                 >Log In</a
               >
             </li>
-            {% endif %}
           </ul>
         </div>
       </div>
     </nav>
+
     <section class="margin-for-footer">
       <div class="container mt-5">
         <div class="row">
