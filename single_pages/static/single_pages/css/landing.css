@@ -1,18 +1,35 @@
 body {
-    position: absolute;
-    background: url('cakd7_dj\single_pages\static\single_pages\images\bg_img.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+  background-image: linear-gradient(
+    to right top,
+    #d16ba5,
+    #c777b9,
+    #ba83ca,
+    #aa8fd8,
+    #9a9ae1,
+    #8aa7ec,
+    #79b3f4,
+    #69bff8,
+    #52cffe,
+    #41dfff,
+    #46eefa,
+    #5ffbf1
+  );
 }
 
 section {
-    margin-bottom: 150px;
+  margin-bottom: 400px;
 }
 
+.card {
+  background-color: rgba(255, 255, 255, 0.6);
+}
 
-h1{
-    text-align: center;
-    margin: 0 auto;
+h5 {
+  font-size: 5rem;
+  font-family: "Playfair Display", serif;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-family: "Playfair Display", serif;
 }

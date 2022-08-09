@@ -1,20 +1,26 @@
 body {
-    background: url('images/beagle.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }
 
-img{
-    width: 500px;
-    height: auto;
+img {
+  width: 500px;
+  height: auto;
 }
 section {
-    margin-bottom: 150px;
+  margin-bottom: 150px;
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
+.margin-for-footer {
+  margin-bottom: 130px;
+}
+
+ul {
+  margin-bottom: 5rem;
+}
