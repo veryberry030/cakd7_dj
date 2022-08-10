@@ -1,245 +1,254 @@
 <!DOCTYPE html>
 <html lang="ko">
   {% load static %}
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    />
-    <script
-      src="https://kit.fontawesome.com/46660e958a.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/">CAKD7</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Blog</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="blog-list.css" rel="stylesheet" />
+        <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        />
+        <script
+          src="https://kit.fontawesome.com/46660e958a.js"
+          crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+            <a class="navbar-brand" href="/">CAKD7</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/blog/">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about_me/">About Me</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                  노션과 깃허브
+                </a>
+                <div
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <a class="dropdown-item" href="https://impartial-tenor-0ea.notion.site/f29f89c0d1f045a693c582cc0d4b68de">Notion</a>
+                  <a class="dropdown-item" href="https://github.com/veryberry030">Github</a>
+                  </div>
+                </li>
+              </ul>
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    data-toggle="modal"
+                    data-target="#loginModal"
+                    >Log In</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="loginModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="logInModalLabel"
+          aria-hidden="true"
         >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/blog/">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about_me/">About Me</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-              노션과 깃허브
-            </a>
-            <div
-              class="dropdown-menu"
-              aria-labelledby="navbarDropdownMenuLink"
-            >
-              <a class="dropdown-item" href="https://impartial-tenor-0ea.notion.site/f29f89c0d1f045a693c582cc0d4b68de">Notion</a>
-              <a class="dropdown-item" href="https://github.com/veryberry030">Github</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="#"
-                data-toggle="modal"
-                data-target="#loginModal"
-                >Log In</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="loginModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="logInModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="loginModalLabel">
-              <i class="fas fa-sign-in-alt"></i>&nbsp Log In
-            </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">
+                  <i class="fas fa-sign-in-alt"></i>&nbsp Log In
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-block btn-sm"
+                    >
+                      <i class="fab fa-google"></i>&nbsp&nbsp Log in with Google
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-block btn-sm"
+                    >
+                      <i class="far fa-envelope"></i>&nbsp&nbsp Log in with E-mail
+                    </button>
+                  </div>
+                  <div class="col-md-6">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-block btn-sm"
+                    >
+                      <i class="far fa-envelope"></i>&nbsp&nbsp Sign Up with E-mail
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="modal-body">
+        </div>        
+        <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-light border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder">💻 JH's Blog 💻</h1>
+                </div>
+            </div>
+        </header>
+        <!-- Page content-->
+        <div class="container">
             <div class="row">
-              <div class="col-md-6">
-                <button
-                  type="button"
-                  class="btn btn-outline-dark btn-block btn-sm"
-                >
-                  <i class="fab fa-google"></i>&nbsp&nbsp Log in with Google
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark btn-block btn-sm"
-                >
-                  <i class="far fa-envelope"></i>&nbsp&nbsp Log in with E-mail
-                </button>
-              </div>
-              <div class="col-md-6">
-                <button
-                  type="button"
-                  class="btn btn-outline-dark btn-block btn-sm"
-                >
-                  <i class="far fa-envelope"></i>&nbsp&nbsp Sign Up with E-mail
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container mt-5 ">
-      <div class="row">
-        <div class="col-lg-9" id="main-area">
-          <h1>Blog {% if category %}<span class="badge bg-secondary float-end">{{ category }}</span>{% endif %}</h1>
-          {% if post_list.exists %} 
-            {% for p in post_list %}
-            <!-- Blog Post -->
-            <div class="col-lg-9" id="post-{{ p.pk }}">
-                <figure class="mb-4">
-                    {% if p.head_image %}
-                        <img class="card-img-top" src="{{ p.head_image.url }}" object-fit= "cover"
-                             alt="{{ p }}"/>
-                    {% else %}
-                        <img class="card-img-top" src="https://picsum.photos/seed/{{ p.id }}/800/200"
-                             alt="random_image">
-                    {% endif %}
-                </figure>
-                <div class="card-body">
-                    <div class="small text-muted">
-                        Posted on {{ p.created_at }} by
-                        <a href="#">{{ p.author | upper }}</a>
-                        {% if p.category %}
-                        <span class="badge bg-secondary float-end">{{ p.category }}</span>
-                        {% else %}
-                        <span class="badge bg-secondary float-end">미분류</span>
-                        {% endif %}
+                <!-- Blog entries-->
+                <div class="col-lg-8" id="main-area">
+                  {% if post_list.exists %} 
+                    {% for p in post_list %}
+                    <!-- Featured blog post-->
+                    <div class="card mb-4" >
+                        <a href="#!">{% if p.head_image %}
+                          <img class="card-img-top" src="{{ p.head_image.url }}" object-fit= "cover"
+                               alt="{{ p }}"/>
+                      {% else %}
+                          <img class="card-img-top" src="https://picsum.photos/seed/{{ p.id }}/800/200"
+                               alt="random_image">
+                      {% endif %}</a>
+                        <div class="card-body">
+                              {% if p.category %}
+                              <span class="badge badge-pill badge-info">{{ p.category }}</span>
+                              {% else %}
+                              <span class="badge badge-pill badge-info">미분류</span>
+                              {% endif %}
+                            <h2 class="card-title">{{ p.title }}</h2>
+                            {% if p.hook_text %}
+                              <h5 class="text-muted">{{ p.hook_text }}</h5>
+                            {% endif %}
+                            <p class="card-text">{{ p.content | truncatewords:45 }}</p>
+                            <a class="btn btn-primary" href="{{ p.get_absolute_url }}">Read more →</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                          Posted on {{ p.created_at}} by <a href="#">{{p.author | upper}}</a>
+                        </div>
                     </div>
-                    <h2 class="card-title">{{ p.title }}</h2>
-                    {% if p.hook_text %}
-                        <h5 class="text-muted">{{ p.hook_text }}</h5>
+                    {% endfor %} {% else %}
+                    <h3>아직 게시물이 없습니다.</h3>
                     {% endif %}
-                    <p class="card-text">{{ p.content | truncatewords:45 }}</p>
-                    <a class="btn btn-primary" href="{{ p.get_absolute_url }}">Read more →</a>
+                    <!-- Pagination-->
+                    <nav aria-label="Pagination">
+                        <hr class="my-0" />
+                        <ul class="pagination justify-content-center my-4">
+                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">15</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <!-- Search widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Search</div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Categories widget-->
+                          <!-- Categories widget-->
+                          <div class="card mb-4" id="categories-card">
+                            <div class="card-header">Categories</div>
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <ul class="list-unstyled mb-0">
+                                    {% for category in Categories %}
+                                        <li>
+                                            <a href="{{ category.get_absolute_url }}">{{ category }}</a>
+                                        </li>
+                                    {% endfor %}
+                                    <li>
+                                        <a href="/blog/category/no_category/">미분류 ({{ no_category_post_count }})</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                 </div>
             </div>
-            <div class="card-footer text-muted">
-              Posted on {{ p.created_at}} by <a href="#">{{p.author | upper}}</a>
-            </div>
-          </div>
-          {% endfor %} {% else %}
-          <h3>아직 게시물이 없습니다.</h3>
-          {% endif %}
-          <!-- Pagination -->
-          <ul class="pagination justify-content-center mb-4">
-            <li class="page-item">
-              <a class="page-link" href="#">&larr; Older</a>
-            </li>
-            <li class="page-item disabled">
-              <a class="page-link" href="#">Newer &rarr;</a>
-            </li>
-          </ul>
         </div>
-        <div class="col-md-4 col-lg-2">
-          <!-- Search Widget -->
-          <div class="card my-4">
-            <h5 class="card-header">Search</h5>
-            <div class="card-body">
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Search for..."
-                />
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
-              </div>
-            </div>
+        <!-- Footer -->
+        <footer class="py-3 bg-dark">
+          <div class="container">
+            <p class="m-0 text-center text-white">
+              Copyright &copy; JH's A to Z 2022
+            </p>
           </div>
-          <!-- Categories widget-->
-          <div class="card my-4" id="categories-card">
-            <div class="card-header">Categories</div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-sm-6">
-                  <ul class="list-unstyled mb-0">
-                    {% for category in Categories %}
-                        <li>
-                            <a href="{{ category.get_absolute_url }}">{{ category }}</a>
-                        </li>
-                    {% endfor %}
-                    <li>
-                        <a href="/blog/category/no_category/">미분류 ({{ no_category_post_count }})</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-    <!-- Footer -->
-    <footer class="py-3 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">
-          Copyright &copy; JH's A to Z 2022
-        </p>
-      </div>
-      <!-- /.container -->
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+          <!-- /.container -->
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
