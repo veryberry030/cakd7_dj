@@ -24,3 +24,7 @@ section {
 ul {
   margin-bottom: 5rem;
 }
+
+li{
+  text-decoration: none;
+}
