@@ -145,30 +145,33 @@
           <h1>Blog</h1>
           {% if post_list.exists %} {% for p in post_list %}
           <!-- Blog Post -->
-          <div class="card mb-4">
-            {% if p.head_image %}
-            <img
-              class="card-img-top"
-              src="{{ p.head_image.url }}"
-              alt="{{ p }} head image"
-            />
-            {% else %}
-            <img
-              class="card-img-top"
-              src="https://picsum.photos/seed/{{ p.id }}/800/200"
-              alt="random_image"
-            />
-            {% endif %}
-            <div class="card-body">
-              <h2 class="card-title">{{ p.title}}</h2>
-              {% if p.hook_text %}
-              <h5 class="text-muted">{{ p.hook_text }}</h5>
-              {% endif %}
-              <!-- 템플릿 필터 : 파이프(|) 문자 사용 -->
-              <p class="card-text">{{ p.content | truncatewords:45 }}</p>
-              <a href="{{ p.get_absolute_url }}" class="btn btn-primary"
-                >Read More &rarr;</a
-              >
+            <div class="card mb-4" id="post-{{ p.pk }}">
+                <a href="#!">
+                    {% if p.head_image %}
+                        <img class="card-img-top" src="{{ p.head_image.url }}"
+                             alt="{{ p }}"/>
+                    {% else %}
+                        <img class="card-img-top" src="https://picsum.photos/seed/{{ p.id }}/800/200"
+                             alt="random_image">
+                    {% endif %}
+                </a>
+                <div class="card-body">
+                    <div class="small text-muted">
+                        Posted on {{ p.created_at }} by
+                        <a href="#">{{ p.author | upper }}</a>
+                        {% if p.category %}
+                        <span class="badge bg-secondary float-end">{{ p.category }}</span>
+                        {% else %}
+                        <span class="badge bg-secondary float-end">미분류</span>
+                        {% endif %}
+                    </div>
+                    <h2 class="card-title">{{ p.title }}</h2>
+                    {% if p.hook_text %}
+                        <h5 class="text-muted">{{ p.hook_text }}</h5>
+                    {% endif %}
+                    <p class="card-text">{{ p.content | truncatewords:45 }}</p>
+                    <a class="btn btn-primary" href="{{ p.get_absolute_url }}">Read more →</a>
+                </div>
             </div>
             <div class="card-footer text-muted">
               Posted on {{ p.created_at}} by <a href="#">{{p.author | upper}}</a>
@@ -205,20 +208,19 @@
             </div>
           </div>
           <!-- Categories Widget -->
-          <div class="card my-4">
+          <div class="card my-4" id="categories-card">
             <h5 class="card-header">Categories</h5>
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
+                    {% for category in categories %}
                     <li>
-                      <a href="#">Web Design</a>
+                      <a href="{{ category.get_absolute_url }}">{{ category }}</a>
                     </li>
+                    {% endfor %}
                     <li>
-                      <a href="#">HTML</a>
-                    </li>
-                    <li>
-                      <a href="#">Freebies</a>
+                      <a href="/blog/category/no_category/">미분류 ({{ no_category_post_count }})</a>
                     </li>
                   </ul>
                 </div>

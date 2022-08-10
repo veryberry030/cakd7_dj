@@ -17,29 +17,24 @@
           <!-- Post meta content-->
           <div class="text-muted fst-italic mb-2">{{ post.created_at }}</div>
           <!-- Post categories-->
-          <a
-            class="badge bg-secondary text-decoration-none link-light"
-            href="#!"
-            >Web Design</a
-          >
-          <a
-            class="badge bg-secondary text-decoration-none link-light"
-            href="#!"
-            >Freebies</a
-          >
+            {% if post.category %}
+            <span class="badge bg-secondary float-end">{{ post.category }}</span>
+            {% else %}
+            <span class="badge bg-secondary float-end">미분류</span>
+            {% endif %}
         </header>
         <!-- Preview image figure-->
         <figure class="mb-4">
-          {% if p.file_upload %}
+          {% if post.file_upload %}
           <img
             class="card-img-top"
-            src="{{ p.file_upload.url }}"
-            alt="{{ p }} file_upload"
+            src="{{ post.file_upload.url }}"
+            alt="{{ post }} file_upload"
           />
           {% else %}
           <img
             class="card-img-top"
-            src="https://picsum.photos/seed/{{ p.id }}/900/300"
+            src="https://picsum.photos/seed/{{ post.id }}/900/300"
             alt="random_image"
           />
           {% endif %}
