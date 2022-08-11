@@ -155,6 +155,9 @@
         <!-- Page content-->
         <div class="container">
             <div class="row">
+
+              <h1>Blog{% if category %}<span class="badge badge-secondary">{{category}}</span>{%endif%}
+              {%if tag%}<span class="badge badge-light"><i class="fas fa-tags"></i>{{tag}}({{tag.post_set.count}})</span>{%endif%}</h1>
                 <!-- Blog entries-->
                 <div class="col-lg-8" id="main-area">
                   {% if post_list.exists %} 
@@ -169,6 +172,7 @@
                                alt="random_image">
                       {% endif %}</a>
                         <div class="card-body">
+                              <!--category-->
                               {% if p.category %}
                               <span class="badge badge-pill badge-info">{{ p.category }}</span>
                               {% else %}
@@ -179,6 +183,18 @@
                               <h5 class="text-muted">{{ p.hook_text }}</h5>
                             {% endif %}
                             <p class="card-text">{{ p.content | truncatewords:45 }}</p>
+
+                            <!--tag-->
+                            {% if p.tags.exists %}
+                              <i class="fas fa-tags"></i>
+                              {% for tag in p.tags.iterator %}
+                                <a href="{{ tag.get_absolute_url }}"><span class="badge badge-pill badge-light">{{ tag }}</span></a>
+                              {% endfor %}  
+                              <br/>
+                              <br/>
+                            {% endif %}
+
+                            <!--readmore-->
                             <a class="btn btn-primary" href="{{ p.get_absolute_url }}">Read more →</a>
                         </div>
                         <div class="card-footer text-muted">
