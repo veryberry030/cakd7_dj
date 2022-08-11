@@ -47,7 +47,7 @@
         </figure>
         <!-- Post content-->
         <section class="mb-5">
-          <p>{{ post.content }}</p>
+          <p>{{ post.get_content_markdown | safe }}</p>
 
           <!--tag-->
           {% if post.tags.exists %}
