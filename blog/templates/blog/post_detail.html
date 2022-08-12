@@ -20,9 +20,9 @@
           <div class="text-muted fst-italic mb-2">{{ post.created_at }}</div>
           <!-- Post categories-->
             {% if post.category %}
-            <span class="badge badge-pill badge-info">{{ post.category }}</span>
+              <span class="badge badge-pill badge-info">{{ post.category }}</span>
             {% else %}
-            <span class="badge badge-pill badge-info">미분류</span>
+              <span class="badge badge-pill badge-info">미분류</span>
             {% endif %}
           <!-- Edit Post -->
             {% if user.is_authenticated and user == post.author %}
@@ -164,26 +164,26 @@
         </div>
       </div>
       <!-- Categories widget-->
-      <div class="card mb-4" id="categories-card">
-        <div class="card-header">Categories</div>
+      <div class="card my-4" id="categories-card">
+        <h5 class="card-header">Categories</h5>
         <div class="card-body">
           <div class="row">
-            <div class="col-sm-6">
-              <ul class="list-unstyled mb-0">
-                {% for category in Categories %}
-                    <li>
-                        <a href="{{ category.get_absolute_url }}">{{ category }}</a>
-                    </li>
+              <ul>
+                {% for category in categories %}
+                <li>
+                    <a href="{{ category.get_absolute_url }}">{{ category }}({{ category.post_set.count }})</a>
+                </li>
                 {% endfor %}
                 <li>
-                    <a href="/blog/category/no_category/">미분류 ({{ no_category_post_count }})</a>
+                    <a href="/blog/category/no_category/">미분류({{ no_category_post_count }})</a>
                 </li>
               </ul>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+</div>
+
 {% endblock %}
