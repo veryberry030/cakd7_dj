@@ -21,6 +21,9 @@
   </head>
 
   <body>
+    {% load socialaccount %}
+
+    <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" href="/">CAKD7</a>
@@ -56,14 +59,17 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                노션과 깃허브
-              </a>
-              <div
-                class="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <a class="dropdown-item" href="https://impartial-tenor-0ea.notion.site/f29f89c0d1f045a693c582cc0d4b68de">Notion</a>
-                <a class="dropdown-item" href="https://github.com/veryberry030">Github</a>
+              노션과 깃허브
+            </a>
+            <div
+              class="dropdown-menu"
+              aria-labelledby="navbarDropdownMenuLink"
+            >
+              <a class="dropdown-item" href="https://impartial-tenor-0ea.notion.site/f29f89c0d1f045a693c582cc0d4b68de">Notion</a>
+              <a class="dropdown-item" href="https://github.com/veryberry030">Github</a>
+              {% if user.is_authenticated %}  
+                <a class="dropdown-item" href="/accounts/logout/">Log Out</a>
+              {% else %}
               </div>
             </li>
           </ul>
@@ -77,10 +83,73 @@
                 >Log In</a
               >
             </li>
+            {% endif %}
           </ul>
         </div>
       </div>
     </nav>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="logInModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">
+              <i class="fas fa-sign-in-alt"></i>&nbsp Log In
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <a role="button" 
+                  class="btn btn-outline-dark btn-block btn-sm"
+                  href="{% provider_login_url 'google' %}">
+                  <i class="fab fa-google"></i>&nbsp&nbsp Log in with Google
+                </a>
+                <a role="button" 
+                  class="btn btn-outline-dark btn-block btn-sm"
+                  href="/accounts/login/"
+                >
+                  <i class="far fa-envelope"></i>&nbsp&nbsp Log in with Username
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a role="button" 
+                  class="btn btn-outline-dark btn-block btn-sm"
+                  href="/accounts/signup/"
+                >
+                  <i class="far fa-envelope"></i>&nbsp&nbsp Sign Up with E-mail
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>       
+
 
     <section class="margin-for-footer">
       <div class="container mt-5">
@@ -93,7 +162,16 @@
               <br/>
               <li>GRADUATION</li>
               <ul>
-                <li>2019 | Sookmyung Women's University<br/>Computer Science department (Bachelor Degree)</li>
+                <li>2015-2019 | Sookmyung Women's University<br/>Computer Science department (Bachelor Degree)</li>
+              </ul>
+              <br/>
+              <li>CAREER</li>
+              <ul>
+                <li>
+                  2022 | Course Completion: Choongang Academy K-Digital training "Bigdata AI solution"
+                </li>
+                <li>2021-2022 | Director : Seoulsi Gwanakgu Local Project 'Nangokesun'</li>
+                <li>2019-2021 | ROTC 57th : Discharged from the army</li>
               </ul>
               <br/>
               <li>SKILL</li>
@@ -103,15 +181,6 @@
                 <li>EDA(Exploratory Data Analysis)</li>
               </ul>
               <br/>
-              <li>CAREER</li>
-              <ul>
-                <li>
-                  Course Completion | Choongang Academy K-Digital training
-                  :Bigdata AI solution
-                </li>
-                <li>Director | Seoulsi Gwanakgu Local Project 'Nangokesun'</li>
-                <li>ROTC 57th | Discharged from the army in 2019</li>
-              </ul>
             </ul>
           </div>
           <div class="col-lg-4 mt-5">
